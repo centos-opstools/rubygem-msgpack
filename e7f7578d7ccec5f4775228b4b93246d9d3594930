@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_44044c15",
+        "filename": "rubygem-msgpack.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 326
+      },
+      "writtenOn": "2017-06-01T21:14:02Z",
+      "side": 1,
+      "message": "`rubygem(rspec)`",
+      "revId": "e7f7578d7ccec5f4775228b4b93246d9d3594930",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
