@@ -2,7 +2,7 @@
 %global gem_name msgpack
 
 Name: rubygem-%{gem_name}
-Version: 0.5.12
+Version: 1.1.0
 Release: 2%{?dist}
 Summary: MessagePack, a binary-based efficient data interchange format
 Group: Development/Languages
@@ -82,27 +82,33 @@ popd
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
 %{gem_extdir_mri}
+%exclude %{gem_instdir}/.rubocop.yml
+%license %{gem_instdir}/LICENSE
+%{gem_instdir}/appveyor.yml
+%{gem_instdir}/bench
+%{gem_libdir}
+%{gem_instdir}/msgpack.org.md
 %exclude %{gem_cache}
 %{gem_spec}
-%license %{gem_instdir}/LICENSE
-%doc %{gem_instdir}/msgpack.org.md
-%{gem_instdir}/bench
-%{gem_instdir}/msgpack.org.md
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Rakefile
-%{gem_instdir}/spec/
-%{gem_instdir}/%{gem_name}.gemspec
-%{gem_instdir}/doclib/
 %doc %{gem_instdir}/ChangeLog
-%doc %{gem_instdir}/Gemfile
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.rdoc
-
+%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/doclib
+%{gem_instdir}/msgpack.gemspec
+%{gem_instdir}/spec
 
 %changelog
+* Fri Jul 21 2017 Sandro Bonazzola <sbonazzo@redhat.com> - 1.1.0-2
+- Re-applied changes lost during rebase
+
+* Thu Jun 29 2017 Rich Megginson <rmeggins@redhat.com> - 1.1.0-1
+- version 1.1.0
+
 * Thu Jan 19 2017 Sandro Bonazzola <sbonazzo@redhat.com> - 0.5.12-2
 - Rebuilding adding ppc64le arch
 
