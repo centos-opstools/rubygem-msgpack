@@ -2,8 +2,8 @@
 %global gem_name msgpack
 
 Name: rubygem-%{gem_name}
-Version: 1.1.0
-Release: 2%{?dist}
+Version: 1.2.0
+Release: 1%{?dist}
 Summary: MessagePack, a binary-based efficient data interchange format
 Group: Development/Languages
 License: ASL 2.0
@@ -13,14 +13,14 @@ BuildRequires: ruby(release)
 BuildRequires: rubygems-devel
 BuildRequires: ruby-devel
 BuildRequires:  rubygem(rspec)
-# BuildRequires: rubygem(rake-compiler) => 0.8.3
-# BuildRequires: rubygem(rake-compiler) < 0.9
-# BuildRequires: rubygem(rspec) => 2.11
-# BuildRequires: rubygem(rspec) < 3
-# BuildRequires: rubygem(json) => 1.7
-# BuildRequires: rubygem(json) < 2
-# BuildRequires: rubygem(yard) => 0.8.2
-# BuildRequires: rubygem(yard) < 0.9
+# BuildRequires: rubygem(rake-compiler) >= 1.0
+# BuildRequires: rubygem(rake-compiler) < 2
+# BuildRequires: rubygem(rake-compiler-dock) >= 0.6.0
+# BuildRequires: rubygem(rake-compiler-dock) < 0.7
+# BuildRequires: rubygem(rspec) >= 3.3
+# BuildRequires: rubygem(rspec) < 4
+# BuildRequires: rubygem(yard)
+# BuildRequires: rubygem(json)
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
@@ -71,7 +71,7 @@ cp -ar .%{gem_instdir}/lib/%{gem_name}/%{gem_name}.so %{buildroot}%{gem_extdir_m
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
-rm -f %{buildroot}%{gem_instdir}/{.gitignore,.travis.yml}
+
 
 # Run the test suite
 %check
@@ -83,7 +83,9 @@ popd
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
+%exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/appveyor.yml
 %{gem_instdir}/bench
@@ -103,6 +105,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Thu Dec 07 2017 Richard Megginson <rmeggins@redhat.com> - 1.2.0-1
+- version 1.2.0
+
 * Fri Jul 21 2017 Sandro Bonazzola <sbonazzo@redhat.com> - 1.1.0-2
 - Re-applied changes lost during rebase
 
