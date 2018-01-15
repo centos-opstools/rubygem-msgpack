@@ -1,0 +1,8 @@
+Code-Review+2: Matthias Runge <mrunge@redhat.com>
+Workflow+1: Sandro Bonazzola <sandro.bonazzola@gmail.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Mon, 15 Jan 2018 08:57:47 +0000
+Reviewed-on: https://review.rdoproject.org/r/11317
+Project: centos-opstools/rubygem-msgpack
+Branch: refs/heads/master
